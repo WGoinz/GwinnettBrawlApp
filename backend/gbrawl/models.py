@@ -36,3 +36,13 @@ class Event(models.Model):
 
     def _str_(self):
         return self.name
+
+
+class Participant(models.Model):
+    gamertag = models.CharField(max_length=120)
+    placement = models.IntegerField()
+    event = models.ForeignKey(Event, on_delete=models.CASCADE,
+                              blank=True, null=True, related_name="participants")
+
+    def _str_(self):
+        return self.gamertag
