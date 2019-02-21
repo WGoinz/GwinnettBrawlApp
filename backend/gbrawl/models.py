@@ -8,7 +8,7 @@ class User(models.Model):
     slogan = models.CharField(max_length=120)
     profilePic = models.TextField()
 
-    def _str_(self):
+    def __str__(self):
         return self.username
 
 
@@ -22,7 +22,7 @@ class Tournament(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              blank=True, null=True, related_name="tournaments")
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 
@@ -34,7 +34,7 @@ class Event(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE,
                                    blank=True, null=True, related_name="events")
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 
@@ -44,5 +44,5 @@ class Participant(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE,
                               blank=True, null=True, related_name="participants")
 
-    def _str_(self):
+    def __str__(self):
         return self.gamertag
