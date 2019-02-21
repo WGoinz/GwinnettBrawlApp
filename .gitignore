@@ -1,2 +1,6 @@
 Pipfile
 Pipfile.lock
+backend/backend/__init__.py
+backend/gbrawl/migrations
+backend/gbrawl/__init__.py
+backend/db.sqlite3
