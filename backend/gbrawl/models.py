@@ -24,3 +24,15 @@ class Tournament(models.Model):
 
     def _str_(self):
         return self.name
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=120)
+    eventPic = models.TextField()
+    standings = models.TextField()
+    totalEntrants = models.IntegerField()
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE,
+                                   blank=True, null=True, related_name="events")
+
+    def _str_(self):
+        return self.name
