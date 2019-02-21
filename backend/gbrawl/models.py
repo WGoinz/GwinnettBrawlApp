@@ -10,3 +10,17 @@ class User(models.Model):
 
     def _str_(self):
         return self.username
+
+
+class Tournament(models.Model):
+    name = models.CharField(max_length=120)
+    venueAddress = models.CharField(max_length=120)
+    date = models.CharField(max_length=120)
+    slogan = models.CharField(max_length=120)
+    url = models.TextField()
+    totalParticipants = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             blank=True, null=True, related_name="tournaments")
+
+    def _str_(self):
+        return self.name
