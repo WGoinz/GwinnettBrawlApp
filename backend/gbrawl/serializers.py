@@ -20,3 +20,10 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ('id', 'name', 'standings',
                   'eventPic', 'totalEntrants', 'tournament')
+
+
+class ParticipantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Participant
+        fields = ('id', 'gamertag', 'placement',
+                  'event')
