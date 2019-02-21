@@ -7,3 +7,18 @@ from .models import User, Tournament, Event, Participant
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class TournamentView(viewsets.ModelViewSet):
+    queryset = Tournament.objects.all()
+    serializer_class = TournamentSerializer
+
+
+class EventView(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+
+
+class ParticipantView(viewsets.ModelViewSet):
+    queryset = Participant.objects.all()
+    serializer_class = ParticipantSerializer
