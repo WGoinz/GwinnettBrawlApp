@@ -13,6 +13,10 @@ class TournamentView(viewsets.ModelViewSet):
     queryset = Tournament.objects.all()
     serializer_class = TournamentSerializer
 
+# class TournamentViewSet(viewsets.ModelViewSet):
+#     def get_queryset(self):
+#         return Tournament.objects.filter(user=self.kwargs['user_pk'])
+
 
 class EventView(viewsets.ModelViewSet):
     queryset = Event.objects.all()
