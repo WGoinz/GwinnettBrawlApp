@@ -3,11 +3,11 @@ from .models import User, Tournament, Event, Participant
 from rest_framework_jwt.settings import api_settings
 
 
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'slogan', 'profilePic')
+
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 

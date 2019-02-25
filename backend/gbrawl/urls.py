@@ -2,6 +2,7 @@ from django.urls import path, include
 from . import views
 from rest_framework import routers
 from rest_framework_nested import routers
+from .views import current_user, UserList
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserView)
@@ -30,5 +31,7 @@ urlpatterns = [
     path(r'', include(user_router.urls)),
     path(r'', include(tournament_router.urls)),
     path(r'', include(event_router.urls)),
+    path('current_user/', current_user),
+    path('auth_users/', UserList.as_view())
 
 ]
