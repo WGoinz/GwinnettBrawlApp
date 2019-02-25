@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Nav from './components/Nav';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import './App.css';
+import HomePage from './components/HomePage';
+
 
 class App extends Component {
   state = {
     displayed_form: '',
     logged_in: localStorage.getItem('token') ? true : false,
-    username: ''
+    username: '',
+    tournament: {}
   };
 
 
@@ -78,32 +82,26 @@ class App extends Component {
   };
 
   render() {
-    let form;
-    switch (this.state.displayed_form) {
-      case 'login':
-        form = <LoginForm handle_login={this.handle_login} />;
-        break;
-      case 'signup':
-        form = <SignupForm handle_signup={this.handle_signup} />;
-        break;
-      default:
-        form = null;
+    const HomePageComponent = () => {
+      return (<HomePage
+        tournament={this.state.tournament}
+        logged_in={this.state.logged_in}
+        display_form={this.display_form}
+        handle_logout={this.handle_logout}
+        username={this.state.username}
+        handle_login={this.handle_login}
+        handle_signup={this.handle_signup}
+        displayed_form={this.state.displayed_form}
+      />)
     }
 
     return (
-      <div className="App">
-        <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Please Log In'}
-        </h3>
-        <Nav
-          logged_in={this.state.logged_in}
-          display_form={this.display_form}
-          handle_logout={this.handle_logout}
-        />
-        {form}
-      </div>
+
+      <Router>
+        <Switch>
+          <Route exact path="/" render={HomePageComponent} />
+        </Switch>
+      </Router>
     );
   }
 }

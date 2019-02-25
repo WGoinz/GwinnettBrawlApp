@@ -7,3 +7,4 @@ backend/db.sqlite3
 .vscode/
 backend/backend/__pycache__/
 backend/gbrawl/__pycache__/
+backend/smashgg

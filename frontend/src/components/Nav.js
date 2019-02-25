@@ -1,4 +1,5 @@
 import React from 'react';
+import LoggedIn from './LoggedIn';
 
 function Nav(props) {
     const logged_out_nav = (
@@ -9,9 +10,12 @@ function Nav(props) {
     );
 
     const logged_in_nav = (
-        <ul>
-            <li onClick={props.handle_logout}>logout</li>
-        </ul>
+        <div>
+            <ul>
+                <li onClick={props.handle_logout}>logout</li>
+            </ul>
+            <LoggedIn />
+        </div>
     );
     return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;
 }
