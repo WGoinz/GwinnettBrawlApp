@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('id', 'username', 'email', 'slogan', 'profilePic')
+        fields = ('id', 'username', 'email', 'slogan', 'profilePic', 'user')
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -47,7 +47,7 @@ class TournamentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tournament
         fields = ('id', 'name', 'venueAddress',
-                  'date', 'url', 'totalParticipants', 'user')
+                  'date', 'url', 'totalParticipants', 'profile')
 
 
 class EventSerializer(serializers.ModelSerializer):

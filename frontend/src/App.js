@@ -5,14 +5,12 @@ import SignupForm from './components/SignupForm';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayed_form: '',
-      logged_in: localStorage.getItem('token') ? true : false,
-      username: ''
-    };
-  }
+  state = {
+    displayed_form: '',
+    logged_in: localStorage.getItem('token') ? true : false,
+    username: ''
+  };
+
 
   componentDidMount() {
     if (this.state.logged_in) {
