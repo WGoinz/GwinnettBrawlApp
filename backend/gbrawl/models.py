@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class User(models.Model):
+class Profile(models.Model):
     username = models.CharField(max_length=120)
     email = models.CharField(max_length=120)
     password = models.CharField(max_length=120)
@@ -18,7 +18,7 @@ class Tournament(models.Model):
     date = models.CharField(max_length=120)
     url = models.TextField()
     totalParticipants = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE,
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE,
                              blank=True, null=True, related_name="tournaments")
 
     def __str__(self):

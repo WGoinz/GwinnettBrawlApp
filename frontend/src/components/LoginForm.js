@@ -27,6 +27,7 @@ class LoginForm extends React.Component {
                     value={this.state.username}
                     onChange={this.handle_change}
                 />
+                <br />
                 <label htmlFor="password">Password</label>
                 <input
                     type="password"
@@ -34,6 +35,7 @@ class LoginForm extends React.Component {
                     value={this.state.password}
                     onChange={this.handle_change}
                 />
+                <br />
                 <input type="submit" />
             </form>
         );

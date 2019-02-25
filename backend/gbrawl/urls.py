@@ -5,14 +5,15 @@ from rest_framework_nested import routers
 from .views import current_user, UserList
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserView)
+router.register(r'profiles', views.ProfileView)
 
-user_router = routers.NestedSimpleRouter(router, r'users', lookup='user')
-user_router.register(
-    r'tournaments', views.TournamentView, base_name='user-tournaments')
+profile_router = routers.NestedSimpleRouter(
+    router, r'profiles', lookup='profile')
+profile_router.register(
+    r'tournaments', views.TournamentView, base_name='profile-tournaments')
 
 tournament_router = routers.NestedSimpleRouter(
-    user_router, r'tournaments', lookup='tournament')
+    profile_router, r'tournaments', lookup='tournament')
 tournament_router.register(
     r'events', views.EventView, base_name='tournament-events')
 
@@ -28,7 +29,7 @@ event_router.register(
 
 urlpatterns = [
     path(r'', include(router.urls)),
-    path(r'', include(user_router.urls)),
+    path(r'', include(profile_router.urls)),
     path(r'', include(tournament_router.urls)),
     path(r'', include(event_router.urls)),
     path('current_user/', current_user),

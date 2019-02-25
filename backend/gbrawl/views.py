@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import UserSerializer, TournamentSerializer, EventSerializer, ParticipantSerializer, UserSerializerWithToken
-from .models import User, Tournament, Event, Participant
+from .serializers import ProfileSerializer, TournamentSerializer, EventSerializer, ParticipantSerializer, UserSerializerWithToken,UserSerializer
+from .models import Profile, Tournament, Event, Participant
 
 from django.http import HttpResponseRedirect
 from rest_framework import permissions, status
@@ -10,9 +10,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
-class UserView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class ProfileView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 
 class TournamentView(viewsets.ModelViewSet):

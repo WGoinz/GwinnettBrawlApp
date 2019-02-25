@@ -1,12 +1,20 @@
 from rest_framework import serializers
-from .models import User, Tournament, Event, Participant
+from .models import Profile, Tournament, Event, Participant
 from rest_framework_jwt.settings import api_settings
+from django.contrib.auth.models import User
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('id', 'username', 'email', 'slogan', 'profilePic')
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'slogan', 'profilePic')
+        fields = ('username',)
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):
