@@ -33,6 +33,6 @@ urlpatterns = [
     path(r'', include(tournament_router.urls)),
     path(r'', include(event_router.urls)),
     path('current_user/', current_user),
-    path('auth_users/', UserList.as_view())
+    path('users/', UserList.as_view())
 
 ]

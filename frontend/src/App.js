@@ -12,6 +12,7 @@ class App extends Component {
     displayed_form: '',
     logged_in: localStorage.getItem('token') ? true : false,
     username: '',
+    id: '',
     tournament: {}
   };
 
@@ -25,7 +26,11 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          console.log(json)
+          this.setState({ 
+            username: json.username,
+            id: json.id
+          });
         });
     }
   }
@@ -45,14 +50,15 @@ class App extends Component {
         this.setState({
           logged_in: true,
           displayed_form: '',
-          username: json.user.username
+          username: json.user.username,
+          id: json.user.id
         });
       });
   };
 
   handle_signup = (e, data) => {
     e.preventDefault();
-    fetch('/api/auth_users/', {
+    fetch('/api/users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -81,6 +87,7 @@ class App extends Component {
     });
   };
 
+
   render() {
     const HomePageComponent = () => {
       return (<HomePage
@@ -92,6 +99,7 @@ class App extends Component {
         handle_login={this.handle_login}
         handle_signup={this.handle_signup}
         displayed_form={this.state.displayed_form}
+        id={this.state.id}
       />)
     }
 
@@ -99,6 +107,7 @@ class App extends Component {
 
       <Router>
         <Switch>
+          <Route exact path="/" render={HomePageComponent} />
           <Route exact path="/" render={HomePageComponent} />
         </Switch>
       </Router>

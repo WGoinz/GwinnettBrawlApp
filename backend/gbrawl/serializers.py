@@ -4,17 +4,11 @@ from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
 
 
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ('id', 'username', 'email', 'slogan', 'profilePic', 'user')
-
-
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('username', 'id')
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):
@@ -43,22 +37,35 @@ class UserSerializerWithToken(serializers.ModelSerializer):
         fields = ('token', 'username', 'password')
 
 
-class TournamentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tournament
-        fields = ('id', 'name', 'venueAddress',
-                  'date', 'url', 'totalParticipants', 'profile')
-
-
-class EventSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Event
-        fields = ('id', 'name', 'standings',
-                  'eventPic', 'totalEntrants', 'tournament')
-
-
 class ParticipantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Participant
         fields = ('id', 'gamertag', 'placement',
                   'event')
+
+
+class EventSerializer(serializers.ModelSerializer):
+    participants = ParticipantSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Event
+        fields = ('id', 'name', 'standings',
+                  'eventPic', 'totalEntrants', 'tournament', 'participants')
+
+
+class TournamentSerializer(serializers.ModelSerializer):
+    events = EventSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Tournament
+        fields = ('id', 'name', 'venueAddress',
+                  'date', 'url', 'totalParticipants', 'profile', 'events')
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    tournaments = TournamentSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('id', 'username', 'email', 'slogan',
+                  'profilePic', 'user', 'tournaments')

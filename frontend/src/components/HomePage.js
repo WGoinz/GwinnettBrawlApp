@@ -28,6 +28,8 @@ class HomePage extends Component {
                     logged_in={this.props.logged_in}
                     display_form={this.props.display_form}
                     handle_logout={this.props.handle_logout}
+                    id={this.props.id}
+                    username={this.props.username}
                 />
                 {form}
             </div>
