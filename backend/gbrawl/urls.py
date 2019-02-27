@@ -7,6 +7,10 @@ from rest_framework_nested import routers
 router = routers.DefaultRouter()
 router.register(r'profiles', views.ProfileView)
 router.register(r'alltournaments', views.TournamentView)
+router.register(r'allevents', views.EventView)
+router.register(r'allparticipants', views.ParticipantView)
+
+
 
 profile_router = routers.NestedSimpleRouter(
     router, r'profiles', lookup='profile')

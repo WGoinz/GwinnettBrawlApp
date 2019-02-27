@@ -25,7 +25,7 @@ class GetTournament extends Component {
             )
         })
         return (
-            <div>
+            <div className='alltourneys'>
                 <h1>All Tournaments</h1>
                 {tournamentsArray}
             </div>

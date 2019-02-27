@@ -36,3 +36,12 @@ body {
   width: 50vw;
   margin: 0 auto;
 }
+.alltourneys{
+  border: 2px solid blue;
+}
+.newtourney {
+  border: 2px solid black;
+}
+.allevents {
+  border: 2px solid blue;
+}
