@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include("gbrawl.urls")),
     # path('smashgg/', include("smashgg.urls")),
-    path('token-auth/', obtain_jwt_token)
+    # path('token-auth/', obtain_jwt_token)
 ]

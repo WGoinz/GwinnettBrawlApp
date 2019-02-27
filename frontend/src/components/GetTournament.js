@@ -10,7 +10,7 @@ class GetTournament extends Component {
         this.displayTournaments()
     }
     displayTournaments = () => {
-        axios.get(`/api/profiles/${this.props.id}/tournaments`).then((res) => {
+        axios.get(`/api/alltournaments/`).then((res) => {
             console.log(res.data)
             this.setState({ tournaments: res.data })
         })
@@ -26,8 +26,7 @@ class GetTournament extends Component {
         })
         return (
             <div>
-                <h1>My Tournaments</h1>
-                <button onClick={this.displayTournaments}>Show</button>
+                <h1>All Tournaments</h1>
                 {tournamentsArray}
             </div>
         );

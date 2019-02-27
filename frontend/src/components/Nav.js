@@ -16,8 +16,6 @@ function Nav(props) {
             <ul>
                 <li onClick={props.handle_logout}>logout</li>
             </ul>
-            <LoggedIn id={props.id}/>
-            <GetTournament id={props.id} />
         </div>
     );
     return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;

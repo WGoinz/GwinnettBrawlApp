@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Nav from './components/Nav';
-import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
 import './App.css';
 import HomePage from './components/HomePage';
 
 
 class App extends Component {
   state = {
-    displayed_form: '',
-    logged_in: localStorage.getItem('token') ? true : false,
-    username: '',
-    id: '',
     tournament: {}
   };
 
