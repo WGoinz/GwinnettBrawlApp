@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"
+import { Link } from "react-router-dom"
+
 
 
 class GetTournament extends Component {
@@ -20,7 +22,7 @@ class GetTournament extends Component {
         let tournamentsArray = this.state.tournaments.map((tournament, i) => {
             return (
                 <div key={i}>
-                    <h2>{tournament.name}</h2>
+                    <Link to={`/alltournaments/${tournament.id}`}><h3>{tournament.name}</h3></Link>
                 </div>
             )
         })
