@@ -1,5 +1,7 @@
 import React from 'react';
 import LoggedIn from './LoggedIn';
+import GetTournament from './GetTournament';
+
 
 function Nav(props) {
     const logged_out_nav = (
@@ -14,7 +16,8 @@ function Nav(props) {
             <ul>
                 <li onClick={props.handle_logout}>logout</li>
             </ul>
-            <LoggedIn />
+            <LoggedIn id={props.id}/>
+            <GetTournament id={props.id} />
         </div>
     );
     return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;

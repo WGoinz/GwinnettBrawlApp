@@ -18,7 +18,6 @@ class HomePage extends Component {
         }
         return (
             <div>
-                <h1>Home Page</h1>
                 <h3>
                     {this.props.logged_in
                         ? `Hello, ${this.props.username}`

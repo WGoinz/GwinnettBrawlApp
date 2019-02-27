@@ -58,7 +58,7 @@ class App extends Component {
 
   handle_signup = (e, data) => {
     e.preventDefault();
-    fetch('/api/users/', {
+    fetch('/api/auth_users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
