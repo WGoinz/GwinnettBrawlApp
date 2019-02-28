@@ -12,7 +12,7 @@ class HomePage extends Component {
         return (
             <div>
                 <Jumbotron />
-                <Profiles />
+                {/* <Profiles /> */}
                 <div className='flexMainPage'>
                     <GetTournament id={this.props.id} />
                     <LoggedIn id={this.props.id} />

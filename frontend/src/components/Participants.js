@@ -18,7 +18,7 @@ class Participants extends Component {
         let participantsArray = this.state.participants.map((participant, i) => {
             return (
                 <div key={i}>
-                    <h2>{participant.gamertag}</h2>
+                    <p>{participant.gamertag}</p>
                 </div>
             )
         })

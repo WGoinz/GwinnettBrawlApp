@@ -20,7 +20,7 @@ class Events extends Component {
         let eventsArray = this.state.events.map((event, i) => {
             return (
                 <div key={i}>
-                    <Link to={`/events/${event.id}`}><h3>{event.name}</h3></Link>
+                    <Link to={`/events/${event.id}`}><h4>{event.name}</h4></Link>
                 </div>
             )
         })
