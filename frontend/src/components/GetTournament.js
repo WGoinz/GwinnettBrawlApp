@@ -22,7 +22,7 @@ class GetTournament extends Component {
         let tournamentsArray = this.state.tournaments.map((tournament, i) => {
             return (
                 <div key={i}>
-                    <Link to={`/alltournaments/${tournament.id}`}><h3>{tournament.name}</h3></Link>
+                    <Link to={`/tournaments/${tournament.id}`}><h3>{tournament.name}</h3></Link>
                 </div>
             )
         })

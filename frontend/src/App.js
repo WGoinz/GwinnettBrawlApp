@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import HomePage from './components/HomePage';
+import SingleTournament from './components/SingleTournament';
 
 
 class App extends Component {
@@ -101,7 +102,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" render={HomePageComponent} />
-          <Route exact path="/" render={HomePageComponent} />
+          <Route exact path="/tournaments/:id" component={SingleTournament} />
         </Switch>
       </Router>
     );
