@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"
+import { Link } from "react-router-dom"
+
 
 class Events extends Component {
     state = {
@@ -18,7 +20,7 @@ class Events extends Component {
         let eventsArray = this.state.events.map((event, i) => {
             return (
                 <div key={i}>
-                    <h2>{event.name}</h2>
+                    <Link to={`/events/${event.id}`}><h3>{event.name}</h3></Link>
                 </div>
             )
         })

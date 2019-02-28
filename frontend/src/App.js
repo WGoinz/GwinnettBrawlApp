@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import HomePage from './components/HomePage';
 import SingleTournament from './components/SingleTournament';
+import SingleEvent from './components/SingleEvent';
 
 
 class App extends Component {
@@ -103,6 +104,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={HomePageComponent} />
           <Route exact path="/tournaments/:id" component={SingleTournament} />
+          <Route exact path="/events/:id" component={SingleEvent} />
         </Switch>
       </Router>
     );
